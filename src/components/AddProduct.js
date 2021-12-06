@@ -25,7 +25,7 @@ const AddProduct = () => {
       confirmButtonText: "Yes",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch("https://floating-earth-09940.herokuapp.com/addProduct", {
+        fetch("https://fierce-mesa-08333.herokuapp.com/addProduct", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(data),

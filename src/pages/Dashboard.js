@@ -22,7 +22,7 @@ const Dashboard = () => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch(`https://floating-earth-09940.herokuapp.com/admin/${email}`)
+    fetch(`https://fierce-mesa-08333.herokuapp.com/admin/${email}`)
       .then((res) => res.json())
       .then((data) => {
         setUser(data);
@@ -64,11 +64,15 @@ const Dashboard = () => {
                     </NavLink>
                   </li>
                 )}
-                <li className="sideBarLink">
-                  <NavLink to={`${url}/myorder`}>
-                    <i class="fas fa-cart-arrow-down"></i> My order
-                  </NavLink>
-                </li>
+
+                {user?.role !== "admin" && (
+                  <li className="sideBarLink">
+                    <NavLink to={`${url}/myorder`}>
+                      <i class="fas fa-cart-arrow-down"></i> My order
+                    </NavLink>
+                  </li>
+                )}
+
                 {user?.role === "admin" && (
                   <li className="sideBarLink">
                     <NavLink to={`${url}/addProduct`}>
@@ -83,11 +87,13 @@ const Dashboard = () => {
                     </NavLink>
                   </li>
                 )}
-                <li className="sideBarLink">
-                  <NavLink to={`${url}/payment`}>
-                    <i class="fab fa-amazon-pay"></i>Payment
-                  </NavLink>
-                </li>
+                {user?.role !== "admin" && (
+                  <li className="sideBarLink">
+                    <NavLink to={`${url}/payment`}>
+                      <i class="fab fa-amazon-pay"></i>Payment
+                    </NavLink>
+                  </li>
+                )}
                 {user?.role === "admin" && (
                   <li className="sideBarLink">
                     <NavLink to={`${url}/manageProduct`}>
@@ -95,11 +101,13 @@ const Dashboard = () => {
                     </NavLink>
                   </li>
                 )}
-                <li className="sideBarLink">
-                  <NavLink to={`${url}/review`}>
-                    <i class="fas fa-comment-dots"></i> Review
-                  </NavLink>
-                </li>
+                {user?.role !== "admin" && (
+                  <li className="sideBarLink">
+                    <NavLink to={`${url}/review`}>
+                      <i class="fas fa-comment-dots"></i> Review
+                    </NavLink>
+                  </li>
+                )}
               </ul>
             </div>
           </Col>

@@ -9,7 +9,7 @@ const MakeAdmin = () => {
 
   const onSubmit = (data) => {
     axios
-      .put("https://floating-earth-09940.herokuapp.com/addAdmin", data)
+      .put("https://fierce-mesa-08333.herokuapp.com/addAdmin", data)
       .then((res) => {
         if (res?.data?.modifiedCount) {
           reset();

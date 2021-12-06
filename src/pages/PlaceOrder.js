@@ -13,7 +13,7 @@ const PlaceOrder = () => {
   const [product, setProduct] = useState({});
   const { displayName, email } = useContexts();
   useEffect(() => {
-    fetch(`https://floating-earth-09940.herokuapp.com/placeorder/${id}`)
+    fetch(`https://fierce-mesa-08333.herokuapp.com/placeorder/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, [id]);
@@ -27,7 +27,7 @@ const PlaceOrder = () => {
       confirmButtonText: "Yes",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch("https://floating-earth-09940.herokuapp.com/placeorder", {
+        fetch("https://fierce-mesa-08333.herokuapp.com/placeorder", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify({ ...data, ...product }),

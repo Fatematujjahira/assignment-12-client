@@ -26,7 +26,7 @@ const AddReview = () => {
       confirmButtonText: "Yes",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch("https://floating-earth-09940.herokuapp.com/addReview", {
+        fetch("https://fierce-mesa-08333.herokuapp.com/addReview", {
           method: "post",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(data),

@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const ManageProducts = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("https://floating-earth-09940.herokuapp.com/products")
+    fetch("https://fierce-mesa-08333.herokuapp.com/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -29,12 +29,9 @@ const ManageProducts = () => {
       confirmButtonText: "Yes",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(
-          `https://floating-earth-09940.herokuapp.com/deleteProduct/${id}`,
-          {
-            method: "DELETE",
-          }
-        )
+        fetch(`https://fierce-mesa-08333.herokuapp.com/deleteProduct/${id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {

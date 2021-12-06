@@ -10,7 +10,7 @@ const Orders = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://floating-earth-09940.herokuapp.com/orders?email=${email}`)
+    fetch(`https://fierce-mesa-08333.herokuapp.com/orders?email=${email}`)
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
@@ -27,7 +27,7 @@ const Orders = () => {
       confirmButtonText: "Yes",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://floating-earth-09940.herokuapp.com/placeorder/${id}`, {
+        fetch(`https://fierce-mesa-08333.herokuapp.com/placeorder/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
